@@ -1,0 +1,76 @@
+{
+  "name": "script-master",
+  "displayName": "Script Master",
+  "description": "优雅的 NPM 脚本命令管理器，让项目脚本执行更轻松",
+  "version": "1.0.3",
+  "publisher": "zhuangyizhen",
+  "author": {
+    "name": "Drowned-fish",
+    "email": "867203437@qq.com"
+  },
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "script master",
+    "scripts master",
+    "Script Master",
+    "Scripts Master",
+    "scripts",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Drowned-fish/Script-Master"
+  },
+  "license": "MIT",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "script-master",
+        "title": "显示项目命令"
+      }
+    ],
+    "menus": {
+      "terminal/context": [
+        {
+          "command": "script-master",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.84.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3",
+    "ts-loader": "^9.5.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
